@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>323 Clothes</title>
+  <link rel="stylesheet" href="styleindex.css" />
+  <link rel="fonts/Got_Heroin.ttf" rel="stylesheet">
+  <link rel="stylesheet" href="newsletter.css">
+  <script src="newsletter.js" defer></script>
+</head>
+
+
+<body>
+    <script src="index.js"></script>
+<div class="nl-overlay" id="nl-overlay" hidden>
+  <div class="nl-modal" role="dialog" aria-modal="true" aria-labelledby="nl-title" aria-describedby="nl-desc">
+    <button class="nl-close" id="nl-close" aria-label="Cerrar ventana">×</button>
+
+    <h2 class="nl-title" id="nl-title">¡Únete a la newsletter!</h2>
+    <p class="nl-desc" id="nl-desc">Recibe novedades y <strong>-10% en tu primer pedido</strong>.</p>
+
+    <form class="nl-form" id="nl-form" novalidate>
+      <input class="nl-input" type="email" id="nl-email" name="email" placeholder="tucorreo@ejemplo.com" required autocomplete="email" />
+      <button class="nl-btn" type="submit">Conseguir descuento</button>
+      <p class="nl-error" id="nl-error" aria-live="polite"></p>
+    </form>
+
+    <div class="nl-success" id="nl-success" hidden>
+      <p class="nl-success-text">Tu codigo</p>
+      <div class="nl-code-wrap">
+        <code class="nl-code" id="nl-code">16WELCOME</code>
+        <button class="nl-copy" id="nl-copy" type="button" aria-label="Copiar código">Copiar</button>
+      </div>
+      <p class="nl-small">¡Gracias por suscribirte!</p>
+    </div>
+  </div>
+</div>
+  <header>
+      <div class="logo-container">
+    <img src="img/sworld-invert.png" alt="Logo" class="logo-img">
+    <h1>NOTRE BLACK</h1>
+      </div>
+    <button class="carrito-flotante" onclick="abrirCarrito()">
+    <span class="carrito-icono">a</span>
+    <span class="carrito-contador">3</span>
+</button>
+
+
+</header>
+
+  <main>
+    <video src="vid/pulpfiction.mp4" autoplay muted loop></video>
+    <p class="hover-effect">TAKE A TRIP</p>
+
+
+<div class="tienda-container">
+    <h1 class="tienda-titulo">Tops</h1>
+    
+    <div class="productos-grid">
+        <div class="producto-card" data-url="product1.html">
+<div class="producto-imagen" data-carousel="producto1">
+    <div class="carousel-images">
+        <img src="img/abstract.png" alt="producto Vista 1" class="carousel-image">
+        <img src="img/sworld-invert.png" alt="producto Vista 2" class="carousel-image">
+        <img src="img/braintext.png" alt="producto Vista 3" class="carousel-image">
+    </div>
+    <button class="carousel-btn prev" onclick="moveSlide('producto1', -1)">‹</button>
+    <button class="carousel-btn next" onclick="moveSlide('producto1', 1)">›</button>
+    <div class="carousel-dots" id="dots-producto1"></div>
+</div>
+            <div class="producto-info">
+                <div>
+                    <h3 class="producto-nombre">GOGO</h3>
+                </div>
+                <div>
+                    <div class="producto-precio">
+                        <span class="moneda">€</span>19
+                    </div>
+                    <button class="btn-añadir">
+                        ADD
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="producto-card">
+            <div class="producto-imagen" data-carousel="producto2">
+    <div class="carousel-images">
+        <img src="img/braintext.png" alt="Producto Vista 1" class="carousel-image">
+        <img src="img/abstract.png" alt="Producto Vista 2" class="carousel-image">
+        <img src="img/sworld-invert.png" alt="Producto Vista 3" class="carousel-image">
+    </div>
+    <button class="carousel-btn prev" onclick="moveSlide('producto2', -1)">‹</button>
+    <button class="carousel-btn next" onclick="moveSlide('producto2', 1)">›</button>
+    <div class="carousel-dots" id="dots-producto2"></div>
+</div>
+            <div class="producto-info">
+                <div>
+                    <h3 class="producto-nombre">HANNEKE</h3>
+                </div>
+                <div>
+                    <div class="producto-precio">
+                        <span class="moneda">€</span>19
+                    </div>
+                    <button class="btn-añadir">
+                        ADD
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="producto-card">
+            <div class="producto-imagen" data-carousel="producto3">
+    <div class="carousel-images">
+         <img src="img/abstract.png" alt="Producto vista 1" class="carousel-image">
+         <img src="img/braintext.png" alt="Producto vista 2" class="carousel-image">
+         <img src="img/sworld-invert.png" alt="Producto vista 3" class="carousel-image">
+            </div>
+                <button class="carousel-btn prev" onclick="moveSlide('producto3', -1)">‹</button>
+                <button class="carousel-btn next" onclick="moveSlide('producto3', 1)">›</button>
+                <div class="carousel-dots" id="dots-producto3"></div>
+            </div>
+            <div class="producto-info">
+                <div>
+                    <h3 class="producto-nombre">DRIVER</h3>
+                </div>
+                <div>
+                    <div class="producto-precio">
+                        <span class="moneda">€</span>19
+                    </div>
+                    <button class="btn-añadir">
+                        ADD
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tienda-container">
+    <h1 class="tienda-titulo">DENIM</h1>
+    
+    <div class="productos-grid">
+        <div class="producto-card">
+            <div class="producto-imagen" data-carousel="pantproducto1">
+                <div class="carousel-images">
+                <img src="img/abstract.png" alt="Producto vista 1" class="carousel-image">
+                <img src="img//braintext.png" alt="Producto vista 2" class="carousel-image">
+                <img src="img/sworld-invert.png" alt="Producto vista 3" class="carousel-image">
+                </div>
+                <button class="carousel-btn prev" onclick="moveSlide('pantproducto1', -1)">‹</button>
+                <button class="carousel-btn next" onclick="moveSlide('pantproducto1', 1)">›</button>
+                <div class="carousel-dots" id="dots-pantproducto1"></div>
+            </div>
+            <div class="producto-info">
+                <div>
+                    <h3 class="producto-nombre">WHITE RUNTZ</h3>
+                </div>
+                <div>
+                    <div class="producto-precio">
+                        <span class="moneda">€</span>45
+                    </div>
+                    <button class="btn-añadir">
+                        ADD
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="producto-card">
+            <div class="producto-imagen" data-carousel="pantproducto2">
+                <div class="carousel-images">
+                <img src="img/abstract.png" alt="Producto vista 1" class="carousel-image">
+                <img src="img/braintext.png" alt="Producto vista 2" class="carousel-image">
+                <img src="img/sworld-invert.png" alt="Producto vista 3" class="carousel-image">
+                </div>
+                <button class="carousel-btn prev" onclick="moveSlide('pantproducto2', -1)">‹</button>
+                <button class="carousel-btn next" onclick="moveSlide('pantproducto2', 1)">›</button>
+                <div class="carousel-dots" id="dots-pantproducto2"></div>
+            </div>
+            
+            <div class="producto-info">
+                <div>
+                    <h3 class="producto-nombre">TROPICANA COOKIES</h3>
+                </div>
+                <div>
+                    <div class="producto-precio">
+                        <span class="moneda">€</span>45
+                    </div>
+                    <button class="btn-añadir">
+                        ADD
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="producto-card">
+            <div class="producto-imagen" data-carousel="pantproducto3">
+                <div class="carousel-images">
+                <img src="img/abstract.png" alt="Producto vista 1" class="carousel-image">
+                <img src="img/braintext.png" alt="Producto vista 2" class="carousel-image">
+                <img src="img/sworld-invert.png" alt="Producto vista 3" class="carousel-image">
+                </div>
+                <button class="carousel-btn prev" onclick="moveSlide('pantproducto3', -1)">‹</button>
+                <button class="carousel-btn next" onclick="moveSlide('pantproducto3', 1)">›</button>
+                <div class="carousel-dots" id="dots-pantproducto3"></div>
+            </div>
+            
+            <div class="producto-info">
+                <div>
+                    <h3 class="producto-nombre">WEDDING CAKE</h3>
+                </div>
+                <div>
+                    <div class="producto-precio">
+                        <span class="moneda">€</span>45
+                    </div>
+                    <button class="btn-añadir">
+                        ADD
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tienda-container">
+    <h1 class="tienda-titulo">ACCESORIES</h1>
+    
+    <div class="productos-grid">
+
+        <div class="producto-card">
+            <div class="producto-imagen" data-carousel="acceproducto1">
+                <div class="carousel-images">
+                <img src="img/abstract.png" alt="Producto vista 1" class="carousel-image">
+                <img src="img/braintext.png" alt="Producto vista 2" class="carousel-image">
+                <img src="img/sworld-invert.png" alt="Producto vista 3" class="carousel-image">
+                </div>
+                <button class="carousel-btn prev" onclick="moveSlide('acceproducto1', -1)">‹</button>
+                <button class="carousel-btn next" onclick="moveSlide('acceproducto1', 1)">›</button>
+                <div class="carousel-dots" id="dots-acceproducto1"></div>
+            </div>
+            <div class="producto-info">
+                <div>
+                    <h3 class="producto-nombre">CAP !</h3>
+                </div>
+                <div>
+                    <div class="producto-precio">
+                        <span class="moneda">€</span>10
+                    </div>
+                    <button class="btn-añadir">
+                        ADD
+                    </button>
+                </div>
+            </div>
+        </div>
+
+         <div class="producto-card">
+            <div class="producto-imagen" data-carousel="acceproducto2">
+                <div class="carousel-images">
+                <img src="img/abstract.png" alt="Producto vista 1" class="carousel-image">
+                <img src="img/braintext.png" alt="Producto vista 2" class="carousel-image">
+                <img src="img/sworld-invert.png" alt="Producto vista 3" class="carousel-image">
+                </div>
+                <button class="carousel-btn prev" onclick="moveSlide('acceproducto2', -1)">‹</button>
+                <button class="carousel-btn next" onclick="moveSlide('acceproducto2', 1)">›</button>
+                <div class="carousel-dots" id="dots-acceproducto2"></div>
+            </div>
+            <div class="producto-info">
+                <div>
+                    <h3 class="producto-nombre">CAP &</h3>
+                </div>
+                <div>
+                    <div class="producto-precio">
+                        <span class="moneda">€</span>10
+                    </div>
+                    <button class="btn-añadir">
+                        ADD
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ </main>
+
+  <footer>
+    <p>&copy; 2025 323 Clothes - All rights reserved </p>
+  </footer>
+
+</body>
+</html>

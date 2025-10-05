@@ -1,0 +1,561 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Rubik Burned", system-ui;
+  font-weight: 400;
+  font-style: normal;
+
+}
+@font-face {
+  font-family: 'gotheroin';
+  src: url('fonts/ANTI-SOC.TTF') format('truetype');
+}
+
+
+header {
+  background-color: #000;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 68px;
+  letter-spacing: 5px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'gotheroin';
+  
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 200px;
+  width: auto;
+}
+
+
+
+main {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url("img/abstract.png");
+  background-size: cover;
+  background-position: center;
+}
+@font-face {
+  font-family: 'Sidewalks';
+  src: url('fonts/sidewalk.ttf') format('truetype');
+}
+
+
+.contenido {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 0px;
+  background-color: transparent;
+}
+
+
+main video {
+  width: 100%;
+  max-width: none;
+  height: auto;
+ 
+}
+
+main p {
+  margin-top: 105px;
+  font-size: 258px;
+  color: rgb(0, 0, 0);
+  font-family: 'Sidewalks';
+}
+.hover-effect {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 254px;
+  color: black;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.hover-effect:hover {
+  color: #3b0000;      
+  transform: translateY(-5px);  
+}
+
+
+
+.tienda {
+  background-color:transparent;
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+}
+@font-face {
+  font-family: 'PunkKid';
+  src: url('fonts/punkkid.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Punkwest';
+  src: url('fonts/Punkwest.otf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.tienda-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.tienda-titulo {
+    text-align: center;
+    font-size: 4.5em;
+    color: #5b0000;
+    margin-bottom: 50px;
+    font-weight: 300;
+    font-family: 'PunkKid';
+
+}
+
+.productos-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.producto-card {
+    flex: 1 5 360px;
+    min-width: 360px;
+    background: rgb(0, 0, 0);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.producto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+
+.producto-imagen {
+    width: 100%;
+    height: 450px;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+}
+
+.carousel-image {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.producto-imagen:hover .carousel-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+
+.carousel-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.producto-imagen[data-single="true"] .carousel-dots {
+    display: none !important;
+}
+
+
+@media (max-width: 768px) {
+    .carousel-btn {
+        opacity: 1;
+        pointer-events: auto;
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+    
+    .carousel-btn.prev {
+        left: 5px;
+    }
+    
+    .carousel-btn.next {
+        right: 5px;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+.producto-imagen {
+    width: 100%;
+    height: 450px;
+    position: relative;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.producto-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+.producto-imagen > img:not(.carousel-image) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.producto-info {
+    padding: 30px 25px;
+}
+
+.producto-info {
+    padding: 30px 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.producto-nombre {
+    font-size: 2.4em;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: 'Punkwest';
+}
+
+
+.producto-precio {
+    font-size: 2em;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family:'Punkwest';
+}
+
+.producto-precio .moneda {
+    font-size: 0.7em;
+    vertical-align: top;
+}
+
+
+.btn-añadir {
+    background: linear-gradient(135deg, #000000 0%, #560101 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-family: 'Punkwest';
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-añadir:hover {
+    background: linear-gradient(135deg, #560101 0%, #000000 100%);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(252, 0, 0, 0.4);
+}
+
+.btn-añadir:active {
+    transform: scale(0.98);
+}
+
+
+@media (max-width: 768px) {
+    .productos-grid {
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .producto-card {
+        min-width: 100%;
+    }
+    
+    .tienda-titulo {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .producto-info {
+        padding: 20px 15px;
+    }
+    
+    .producto-nombre {
+        font-size: 1.2em;
+    }
+    
+    .producto-precio {
+        font-size: 1.6em;
+    }
+}
+
+.carrito-flotante {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 100px;
+    height: 100px;
+    background: #000000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border: none;
+    
+}
+
+.carrito-flotante:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 35px rgba(109, 0, 0, 0.6);
+}
+
+.carrito-flotante:active {
+    transform: scale(0.95);
+}
+@font-face {
+  font-family: 'Steampunk';
+  src: url('fonts/Steampunkicons.otf') format('truetype');
+}
+
+.carrito-icono {
+    font-size: 64px;
+    color: rgb(255, 255, 255);
+    font-family: 'Steampunk';
+}
+
+.carrito-contador {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #660a00;
+    color: white;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: bold;
+    border: 2px solid white;
+}
+
+.carrito-flotante.pulso {
+    animation: pulso 0.6s ease-in-out;
+}
+
+@keyframes pulso {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+    .carrito-flotante {
+        top: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+    }
+    
+    .carrito-icono {
+        font-size: 22px;
+    }
+    
+    .carrito-contador {
+        width: 20px;
+        height: 20px;
+        font-size: 11px;
+    }
+}
+
+.carrito-flotante.grande {
+    width: 70px;
+    height: 70px;
+}
+
+.carrito-flotante.grande .carrito-icono {
+    font-size: 28px;
+}
+
+.carrito-flotante.con-texto {
+    width: auto;
+    height: 50px;
+    padding: 0 20px;
+    border-radius: 25px;
+    gap: 8px;
+}
+
+
+.carrito-texto {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    white-space: nowrap;
+   
+}
+
+.carrito-flotante.izquierda {
+    left: 30px;
+    right: auto;
+}
+
+.carrito-flotante.arriba-derecha {
+    top: 30px;
+    bottom: auto;
+}
+
+.carrito-flotante.arriba-izquierda {
+    top: 30px;
+    left: 30px;
+    right: auto;
+    bottom: auto;
+}
+
+
+
+footer {
+  background-color:black;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+@media (max-width: 1100px){
+  .tienda-container:nth-of-type(-n+3) .productos-grid{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tienda-container:nth-of-type(-n+3) .producto-card{
+    flex: 0 1 auto;
+    width: clamp(320px, 92vw, 420px);
+    min-width: auto;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px){
+  .tienda-container:nth-of-type(-n+3) .producto-card{
+    min-width: auto;
+    width: clamp(300px, 92vw, 400px);
+    margin: 0 auto;
+  }
+}
+.card-clickable { cursor: pointer; }
+.card-clickable:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}

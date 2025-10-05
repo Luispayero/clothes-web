@@ -1,0 +1,127 @@
+@font-face {
+  font-family: 'gotheroin';
+  src: url('fonts/ANTI-SOC.TTF') format('truetype');
+}
+
+
+
+
+
+:root{
+  --nl-bg: #0f0f0f;
+  --nl-fg:  #ffffff;
+  --nl-muted: #cfcfcf;
+  --nl-accent: #470000;
+  --nl-shadow: 0 20px 60px rgba(0,0,0,.45);
+  --nl-radius: 18px;
+  --nl-gap: 14px;
+  --nl-z: 5000; 
+}
+
+.nl-overlay[hidden] { display: none !important; }
+
+.nl-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  display: grid;
+  place-items: center;
+  z-index: var(--nl-z);
+  padding: 16px;
+}
+
+.nl-modal{
+  width: min(92vw, 420px);
+  background: var(--nl-bg);
+  color: var(--nl-fg);
+  border: 1px solid #1e1e1e;
+  border-radius: var(--nl-radius);
+  box-shadow: var(--nl-shadow);
+  padding: 22px 22px 18px;
+  position: relative;
+  display: grid;
+  gap: var(--nl-gap);
+  animation: nl-pop .2s ease-out;
+}
+
+@keyframes nl-pop { from{ transform: scale(.96); opacity:0 } to{ transform: scale(1); opacity:1 } }
+
+.nl-close{
+  position: absolute;
+  top: 8px; right: 8px;
+  width: 36px; height: 36px;
+  border: none; border-radius: 50%;
+  color: #490000; font-size: 42px; line-height: 1;
+  background: transparent;
+}
+
+@font-face {
+  font-family: 'font';
+  src: url('fonts/ScribblesJE.ttf') format('truetype');
+}
+
+.nl-title{
+  margin: 6px 34px 0 0; 
+  font-size: 30px;
+  letter-spacing: .02em;
+  font-family: 'font';
+}
+.nl-desc{ margin: 0; color: #ffffff; font-family: 'font'; font-size: 24px;}
+
+.nl-form{ display: grid; gap: 10px; color: #560101; font-family: 'font';}
+.nl-label{ font-size: .95rem; color: #710000}
+.nl-input{
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #141414; color: #ffffff;
+  border: 1px solid #242424; outline: none;
+  
+}
+.nl-input:focus{ border-color:#333; box-shadow: 0 0 0 3px rgba(255,255,255,.06) }
+
+.nl-btn{
+  border: none;
+  border-radius: 999px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #000 0%, var(--nl-accent) 100%);
+  color: #fff; font-weight: 700; cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+  font-family: 'font';
+  font-size: 55;
+}
+.nl-btn:hover{ transform: translateY(-1px); filter: brightness(1.06); box-shadow: 0 12px 28px rgba(86,1,1,.28) }
+.nl-btn:active{ transform: translateY(0) scale(.98) }
+
+.nl-error{
+  min-height: 18px;
+  color: #710000;
+  font-size: .9rem;
+  font-family: 'punkkid';
+}
+
+.nl-success[hidden]{ display: none !important; }
+.nl-success-text{ margin: 6px 0 2px; font-family: 'punkkid'; }
+.nl-code-wrap{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+  background: #151515;
+  border: 1px solid #242424;
+  border-radius: 12px;
+  padding: 10px 10px 10px 14px;
+}
+.nl-code{ font-size: 25px; letter-spacing: .03em; font-family: 'punkkid'; }
+.nl-copy{
+  border: 1px solid #2a2a2a;
+  background: #ffffff;
+  color: #000000; border-radius: 10px;
+  padding: 8px 10px; cursor: pointer;
+  font-family: 'punkkid';
+}
+.nl-copy:hover{ filter: brightness(1.08); }
+
+.nl-small{ margin: 8px 0 0; color: var(--nl-muted); font-size: .92rem; font-family: 'punkkid'; color: #560101; }
+
+button:focus-visible, input:focus-visible { outline: 2px solid #fff; outline-offset: 2px }

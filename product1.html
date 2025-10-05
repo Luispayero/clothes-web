@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>323 Clothes</title>
+  <link rel="stylesheet" href="styleproducto1.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Burned&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+      <div class="logo-container">
+    <img src="img/sworld-invert.png" alt="Logo" class="logo-img">
+    <h1>NOTRE BLACK</h1>
+      </div>
+  </script>
+  <!-- Carrito flotante básico -->
+<button class="carrito-flotante" onclick="abrirCarrito()">
+    <span class="carrito-icono">a</span>
+    <span class="carrito-contador">3</span>
+</button>
+
+
+
+<!-- JavaScript básico para funcionalidad -->
+<script>
+let contadorCarrito = 0;
+
+function abrirCarrito() {
+    alert('Abriendo carrito...');
+    // Aquí puedes añadir tu lógica para mostrar el carrito
+}
+
+function añadirAlCarrito(producto) {
+    contadorCarrito++;
+    
+    // Actualizar contador visual
+    const contador = document.querySelector('.carrito-contador');
+    if (contador) {
+        contador.textContent = contadorCarrito;
+    }
+    
+    // Animación de pulso
+    const carritoBtn = document.querySelector('.carrito-flotante');
+    carritoBtn.classList.add('pulso');
+    setTimeout(() => {
+        carritoBtn.classList.remove('pulso');
+    }, 600);
+    
+    console.log(`${producto} añadido al carrito. Total: ${contadorCarrito}`);
+}
+// ========== JAVASCRIPT PARA CARRUSEL CON DEBUG ==========
+
+const carousels = {};
+
+function initCarousel(carouselId) {
+    console.log('Inicializando carrusel:', carouselId);
+    
+    const container = document.querySelector(`[data-carousel="${carouselId}"]`);
+    if (!container) {
+        console.error(`No se encontró contenedor para: ${carouselId}`);
+        return;
+    }
+    
+    const images = container.querySelectorAll('.carousel-image');
+    const totalSlides = images.length;
+    
+    console.log(`Carrusel ${carouselId} tiene ${totalSlides} imágenes`);
+    
+    // Si solo hay una imagen, marcar como single
+    if (totalSlides <= 1) {
+        container.setAttribute('data-single', 'true');
+        console.log(`Carrusel ${carouselId} marcado como single`);
+        return;
+    }
+
+    carousels[carouselId] = {
+        currentSlide: 0,
+        totalSlides: totalSlides,
+        container: container,
+        imagesContainer: container.querySelector('.carousel-images')
+    };
+
+    // Crear puntos
+    createDots(carouselId);
+    console.log(`Carrusel ${carouselId} inicializado correctamente`);
+}
+
+function createDots(carouselId) {
+    const dotsContainer = document.getElementById(`dots-${carouselId}`);
+    if (!dotsContainer) {
+        console.error(`No se encontró contenedor de puntos: dots-${carouselId}`);
+        return;
+    }
+    
+    const totalSlides = carousels[carouselId].totalSlides;
+    
+    // Limpiar puntos existentes
+    dotsContainer.innerHTML = '';
+    
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.onclick = () => goToSlide(carouselId, i);
+        dotsContainer.appendChild(dot);
+    }
+    
+    console.log(`Creados ${totalSlides} puntos para ${carouselId}`);
+}
+
+function moveSlide(carouselId, direction) {
+    console.log(`moveSlide llamado: ${carouselId}, dirección: ${direction}`);
+    
+    if (!carousels[carouselId]) {
+        console.error(`Carrusel ${carouselId} no está inicializado`);
+        return;
+    }
+    
+    const carousel = carousels[carouselId];
+    const oldSlide = carousel.currentSlide;
+    carousel.currentSlide += direction;
+    
+    if (carousel.currentSlide >= carousel.totalSlides) {
+        carousel.currentSlide = 0;
+    } else if (carousel.currentSlide < 0) {
+        carousel.currentSlide = carousel.totalSlides - 1;
+    }
+    
+    console.log(`Cambiando de slide ${oldSlide} a ${carousel.currentSlide}`);
+    updateCarousel(carouselId);
+}
+
+function goToSlide(carouselId, slideIndex) {
+    console.log(`goToSlide: ${carouselId}, slide: ${slideIndex}`);
+    
+    if (!carousels[carouselId]) {
+        console.error(`Carrusel ${carouselId} no está inicializado`);
+        return;
+    }
+    
+    carousels[carouselId].currentSlide = slideIndex;
+    updateCarousel(carouselId);
+}
+
+function updateCarousel(carouselId) {
+    const carousel = carousels[carouselId];
+    const translateX = -carousel.currentSlide * 100;
+    
+    console.log(`Actualizando carrusel ${carouselId}: translateX(${translateX}%)`);
+    
+    if (carousel.imagesContainer) {
+        carousel.imagesContainer.style.transform = `translateX(${translateX}%)`;
+    } else {
+        console.error(`No se encontró imagesContainer para ${carouselId}`);
+    }
+    
+    // Actualizar puntos
+    const dots = document.querySelectorAll(`#dots-${carouselId} .dot`);
+    dots.forEach((dot, index) => {
+        if (index === carousel.currentSlide) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+}
+
+// Inicializar cuando la página cargue
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM cargado, inicializando carruseles...');
+    
+    const allCarousels = document.querySelectorAll('[data-carousel]');
+    console.log(`Encontrados ${allCarousels.length} carruseles`);
+    
+    allCarousels.forEach(carousel => {
+        const carouselId = carousel.getAttribute('data-carousel');
+        initCarousel(carouselId);
+    });
+    
+    console.log('Carruseles inicializados:', Object.keys(carousels));
+});
+
+// Función de test manual
+function testCarousel(carouselId) {
+    console.log('=== TEST CARRUSEL ===');
+    console.log('ID:', carouselId);
+    console.log('Datos del carrusel:', carousels[carouselId]);
+    
+    if (carousels[carouselId]) {
+        console.log('Probando movimiento...');
+        moveSlide(carouselId, 1);
+    }
+}
+// Función para verificar puntos
+function debugPuntos() {
+    const allDots = document.querySelectorAll('.carousel-dots');
+    console.log('=== DEBUG PUNTOS ===');
+    
+    allDots.forEach((dotContainer, index) => {
+        console.log(`Contenedor ${index}:`);
+        console.log('- ID:', dotContainer.id);
+        console.log('- Padre:', dotContainer.parentElement.getAttribute('data-carousel'));
+        console.log('- Puntos dentro:', dotContainer.querySelectorAll('.dot').length);
+        console.log('---');
+    });
+}
+
+// Ejecutar después de que cargue la página
+document.addEventListener('DOMContentLoaded', function() {
+    // ... tu código existente ...
+    
+    // Añadir debug al final
+    setTimeout(debugPuntos, 1000);
+});
+
+</script>
+</header>
+<body>
+  <main class="wrap">
+    <div class="product-grid">
+      <!-- GALERÍA (3 fotos + 1 vídeo en mosaico desigual) -->
+      <section class="gallery" aria-label="Galería del producto">
+        <figure class="gallery-item gallery-a">
+          <img src="img/gorrafrente.png" alt="Producto vista principal" class="media" />
+        </figure>
+
+        <figure class="gallery-item gallery-b">
+          <video class="media" src="vid/pulpfiction.mp4" autoplay muted loop playsinline controls aria-label="Vídeo del producto"></video>
+        </figure>
+
+        <figure class="gallery-item gallery-c">
+          <img src="img/gorralado.png" alt="Detalle tejido" class="media" />
+        </figure>
+
+        <figure class="gallery-item gallery-d">
+          <img src="img/gorraatras.png" alt="Producto desde la parte trasera" class="media" />
+        </figure>
+      </section>
+
+      <!-- INFO A LA DERECHA -->
+      <aside class="product-info">
+        <h1 class="product-name">Sudadera “NOTRE BLACK”</h1>
+        <p class="product-price"><span class="currency">€</span><data value="59.00">59</data></p>
+
+        <form class="purchase" action="#" method="post">
+          <label for="talla" class="label">Talla</label>
+          <select id="talla" name="talla" class="select" required>
+            <option value="" disabled selected>Selecciona tu talla</option>
+            <option value="s">S</option>
+            <option value="m">M</option>
+            <option value="l">L</option>
+            <option value="xl">XL</option>
+          </select>
+
+          <button type="submit" class="btn-buy">Añadir al carrito</button>
+        </form>
+
+        <ul class="meta">
+          <li>Envío 24–48h</li>
+          <li>Devoluciones 30 días</li>
+          <li>Pago seguro</li>
+        </ul>
+      </aside>
+
+      <!-- DESCRIPCIÓN ABAJO -->
+      <section class="product-description">
+        <h2>Descripción</h2>
+        <p>
+          Sudadera de algodón premium con acabado suave. Corte relajado, cuello redondo y gráficos “NOTRE BLACK”.
+          Recomendamos tu talla habitual para un fit estándar.
+        </p>
+        <ul>
+          <li>100% algodón (330 g/m²)</li>
+          <li>Serigrafía frontal y trasera</li>
+          <li>Lavar del revés a 30º</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
