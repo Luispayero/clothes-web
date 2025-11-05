@@ -15,7 +15,7 @@
     <h1>NOTRE BLACK</h1>
       </div>
   </script>
-  <!-- Carrito flotante básico -->
+ 
 <button class="carrito-flotante" onclick="abrirCarrito()">
     <span class="carrito-icono">a</span>
     <span class="carrito-contador">3</span>
@@ -23,25 +23,24 @@
 
 
 
-<!-- JavaScript básico para funcionalidad -->
+
 <script>
 let contadorCarrito = 0;
 
 function abrirCarrito() {
     alert('Abriendo carrito...');
-    // Aquí puedes añadir tu lógica para mostrar el carrito
+    
 }
 
 function añadirAlCarrito(producto) {
     contadorCarrito++;
     
-    // Actualizar contador visual
+   
     const contador = document.querySelector('.carrito-contador');
     if (contador) {
         contador.textContent = contadorCarrito;
     }
     
-    // Animación de pulso
     const carritoBtn = document.querySelector('.carrito-flotante');
     carritoBtn.classList.add('pulso');
     setTimeout(() => {
@@ -50,7 +49,7 @@ function añadirAlCarrito(producto) {
     
     console.log(`${producto} añadido al carrito. Total: ${contadorCarrito}`);
 }
-// ========== JAVASCRIPT PARA CARRUSEL CON DEBUG ==========
+
 
 const carousels = {};
 
@@ -68,7 +67,7 @@ function initCarousel(carouselId) {
     
     console.log(`Carrusel ${carouselId} tiene ${totalSlides} imágenes`);
     
-    // Si solo hay una imagen, marcar como single
+
     if (totalSlides <= 1) {
         container.setAttribute('data-single', 'true');
         console.log(`Carrusel ${carouselId} marcado como single`);
@@ -82,7 +81,7 @@ function initCarousel(carouselId) {
         imagesContainer: container.querySelector('.carousel-images')
     };
 
-    // Crear puntos
+
     createDots(carouselId);
     console.log(`Carrusel ${carouselId} inicializado correctamente`);
 }
@@ -95,8 +94,7 @@ function createDots(carouselId) {
     }
     
     const totalSlides = carousels[carouselId].totalSlides;
-    
-    // Limpiar puntos existentes
+ 
     dotsContainer.innerHTML = '';
     
     for (let i = 0; i < totalSlides; i++) {
@@ -156,7 +154,7 @@ function updateCarousel(carouselId) {
         console.error(`No se encontró imagesContainer para ${carouselId}`);
     }
     
-    // Actualizar puntos
+  
     const dots = document.querySelectorAll(`#dots-${carouselId} .dot`);
     dots.forEach((dot, index) => {
         if (index === carousel.currentSlide) {
@@ -167,7 +165,7 @@ function updateCarousel(carouselId) {
     });
 }
 
-// Inicializar cuando la página cargue
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM cargado, inicializando carruseles...');
     
@@ -182,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Carruseles inicializados:', Object.keys(carousels));
 });
 
-// Función de test manual
+
 function testCarousel(carouselId) {
     console.log('=== TEST CARRUSEL ===');
     console.log('ID:', carouselId);
@@ -193,7 +191,7 @@ function testCarousel(carouselId) {
         moveSlide(carouselId, 1);
     }
 }
-// Función para verificar puntos
+
 function debugPuntos() {
     const allDots = document.querySelectorAll('.carousel-dots');
     console.log('=== DEBUG PUNTOS ===');
@@ -207,11 +205,10 @@ function debugPuntos() {
     });
 }
 
-// Ejecutar después de que cargue la página
+
 document.addEventListener('DOMContentLoaded', function() {
-    // ... tu código existente ...
     
-    // Añadir debug al final
+    
     setTimeout(debugPuntos, 1000);
 });
 
@@ -220,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <body>
   <main class="wrap">
     <div class="product-grid">
-      <!-- GALERÍA (3 fotos + 1 vídeo en mosaico desigual) -->
+      
       <section class="gallery" aria-label="Galería del producto">
         <figure class="gallery-item gallery-a">
           <img src="img/gorrafrente.png" alt="Producto vista principal" class="media" />
@@ -239,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </figure>
       </section>
 
-      <!-- INFO A LA DERECHA -->
+      
       <aside class="product-info">
         <h1 class="product-name">Sudadera “NOTRE BLACK”</h1>
         <p class="product-price"><span class="currency">€</span><data value="59.00">59</data></p>
@@ -264,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </ul>
       </aside>
 
-      <!-- DESCRIPCIÓN ABAJO -->
+      
       <section class="product-description">
         <h2>Descripción</h2>
         <p>
